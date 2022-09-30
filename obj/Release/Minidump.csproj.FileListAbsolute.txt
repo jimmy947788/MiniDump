@@ -1,0 +1,6 @@
+C:\Users\iForensics\Projects\MiniDump\bin\Release\Minidump.exe.config
+C:\Users\iForensics\Projects\MiniDump\bin\Release\Minidump.exe
+C:\Users\iForensics\Projects\MiniDump\bin\Release\Minidump.pdb
+C:\Users\iForensics\Projects\MiniDump\obj\Release\Minidump.csproj.CoreCompileInputs.cache
+C:\Users\iForensics\Projects\MiniDump\obj\Release\Minidump.exe
+C:\Users\iForensics\Projects\MiniDump\obj\Release\Minidump.pdb

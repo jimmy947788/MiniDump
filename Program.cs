@@ -24,6 +24,10 @@ namespace Minidump
 
         private static void Main(string[] args)
         {
+            ByPassUtility.PatchETW();
+
+            ByPassUtility.PathAMSI();
+
             if (args.Length == 0)
             {
                 Console.WriteLine("Missing argument");
