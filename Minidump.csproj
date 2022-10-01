@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ByPassUtility.cs" />
+    <Compile Include="BytesToInt64Helper.cs" />
     <Compile Include="Crypto\BCrypt.cs" />
     <Compile Include="Crypto\Crypto.cs" />
     <Compile Include="Decryptor\Cloudap_.cs" />

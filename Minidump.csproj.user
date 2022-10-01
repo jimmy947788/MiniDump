@@ -11,4 +11,7 @@
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>"C:\Users\jimmy\Downloads\lsass dump data-20221001T213434Z-001\lsass dump data\lsass.exe-2012.dmp"</StartArguments>
+  </PropertyGroup>
 </Project>

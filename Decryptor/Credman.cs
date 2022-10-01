@@ -32,7 +32,23 @@ namespace Minidump.Decryptor
                 minidump.fileBinaryReader.BaseStream.Seek(Rva2offset(minidump, pList1), 0);
                 var credmanstarterBytes = minidump.fileBinaryReader.ReadBytes(Marshal.SizeOf(typeof(KIWI_CREDMAN_LIST_STARTER)));
 
-                long pStart = BitConverter.ToInt64(credmanstarterBytes, FieldOffset<KIWI_CREDMAN_LIST_STARTER>("start"));
+                // 嘗試修正在解析windows 2012的 dump file會crash 
+                // 參考 https://learn.microsoft.com/zh-tw/dotnet/api/system.bitconverter.toint64?view=net-6.0
+                long pStart = 0;
+                var startOffset= FieldOffset<KIWI_CREDMAN_LIST_STARTER>("start");
+                var subCredmanstarterBytes = credmanstarterBytes.Skip(startOffset).ToList();
+                if (subCredmanstarterBytes.Count < 8)
+                {
+                    while (subCredmanstarterBytes.Count < 8)
+                    {
+                        subCredmanstarterBytes.Add(0x00 );
+                    }
+                    pStart = BitConverter.ToInt64(subCredmanstarterBytes.ToArray(), 0);
+                }
+                else
+                {
+                    pStart = BitConverter.ToInt64(credmanstarterBytes, startOffset);
+                }
 
                 if (pStart == 0)
                     continue;
